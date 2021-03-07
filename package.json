@@ -1,0 +1,44 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/server/server.js",
+    "build-dev": "webpack serve --config webpack.dev.js --open",
+    "build-prod": "webpack --config webpack.prod.js"
+  },
+  "keywords": [],
+  "author": "Badr Rahmaouy",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "@sideway/address": "^4.1.1",
+    "@sideway/formula": "^3.0.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.1.1",
+    "css-minimizer-webpack-plugin": "^1.2.0",
+    "html-webpack-plugin": "^5.2.0",
+    "jest": "^26.6.3",
+    "joi": "^17.4.0",
+    "mini-css-extract-plugin": "^1.3.9",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "webpack-dev-server": "^3.11.2",
+    "workbox-webpack-plugin": "^6.1.1"
+  }
+}

@@ -13,14 +13,15 @@ app.use(cors())
 const port = 8081
 app.listen(port, () => { console.log(`The server is running on port ${port}`)})
 console.log(__dirname);
-const fetchedData = {}
+const fetchedData = []
 // GET route 
 app.get('/all', (res, req) => res.send(fetchedData))
 
 // POST route
-app.post('/', postData)
+app.post('/add', postData)
 function postData(req, res) {
-    fetchedData = req.body
+    // console.log(req.body)
+    fetchedData.push(req.body)
     res.send(fetchedData)
-    console.log(fetchedData);
+    console.log(fetchedData)
 }

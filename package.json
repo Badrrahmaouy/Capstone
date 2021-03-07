@@ -6,7 +6,8 @@
     "test": "jest",
     "start": "node src/server/server.js",
     "build-dev": "webpack serve --config webpack.dev.js --open",
-    "build-prod": "webpack --config webpack.prod.js"
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-d": "webpack --config webpack.dev.js"
   },
   "keywords": [],
   "author": "Badr Rahmaouy",

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div id="logo" class="text logo">LOGO</div>
+            <h1 id="app_name" class="text title">CAPSTONE</h1>
+        </header>
+
+        <main>
+            <div id="description" class="text">Check the forecast for your planned trip by entering the city where you travelling to and the departure date</div>
+            <!-- user inputs -->
+            <form id="inputs">
+                <label for="adress">
+                    <input id="address" type="text" name="city" placeholder="insert city where you travelling to">
+                </label>
+                <label for="date">
+                    <input type="date" name="date">
+                </label>
+                <input id="submit" type="submit" name="" value="submit">
+            </form>
+
+            <!-- fetched data -->
+            <div id="data">
+                <div id="city_img"></div>
+                <div id="weather"></div>
+            </div>
+        </main>
+
+        <footer>
+            Made with &hearts; by <a href="https://www.github.com/Badrrahmaouy" target="_blank">Baddi</a>
+        </footer>
+    </div>
+</body>
+</html>

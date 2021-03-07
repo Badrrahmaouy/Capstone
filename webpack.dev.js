@@ -7,9 +7,9 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
-    devtool: 'source-map',
+    // devtool: 'source-map',
     output: {
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
     },
     module: {
         rules: [
@@ -17,7 +17,24 @@ module.exports = {
                 test: '/\.js$/',
                 exclude: /node_modules/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebPackPlugin({
+            title: 'Development',
+            template: './src/client/view/index.html',
+            filename: './index.html'
+        }),
+        new CleanWebpackPlugin({
+            dry: true,
+            verbose: true,
+            cleanStaleWebpackAssets: true,
+            protectWebpackAssets: false
+        })
+    ]
 }

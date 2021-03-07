@@ -1,0 +1,21 @@
+.container {
+    header{
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        width: 80%;
+        height: 100px;
+        justify-content: center;
+        border-bottom: 1px solid black;
+
+        #logo{
+            position: absolute;
+            left: 250px;
+            top: 15px;
+            font-size: 2em;
+            padding: 20px;
+            background-color: lightgreen;
+            border-radius: 100%;
+        }
+    }
+}

@@ -1,20 +1,13 @@
 import { postData } from "./postModule"
 import { getData } from "./getModule"
 
-export function getImg(city) { 
-    getData('http://localhost:8081/key')
+const url = 'https://pixabay.com/api/?'
+const urlKey = 'key=20560827-2583a0c3f9bf9a098c0a43c8e&q='
+const imgType = '&image_type=photo'
+
+export async function getImg(city) { 
+    getData(url + urlKey + city + imgType)
     .then(function (res) {
-        console.log(res)
+        console.log(res.hits[0].webformatURL)
     })
-    // .then(function (data) {
-    //     console.log(data)
-    //     let key = data[2]
-    //     console.log(key)
-    //     return key
-    // }) .then(function (key) { 
-    //     const url = `https://pixabay.com/api/?key=${key}&q=${city}&image_type=photo`
-    //     getData(url)
-    // }) .then(function (data) {
-    //     console.log(data)
-    // })
 }

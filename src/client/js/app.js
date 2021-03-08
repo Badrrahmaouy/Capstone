@@ -1,7 +1,6 @@
 import { postData } from "./postModule"
 import { getData } from "./getModule"
 import { getImg } from "./getImg"
-import { getCoord } from "./getPos"
 import { getCurrentWeather, getFutureWeather } from "./getWeather"
 
 const geoUrl = 'http://api.geonames.org/geoCodeAddressJSON?q='
@@ -23,7 +22,7 @@ export function formHandler(event) {
         const data = { lat: res.address.lat, lng: res.address.lng }
         return data
     }).then(data => {
-        if(month - todayMonth >= 0) {
+        if(month - todayMonth >= 0 && day - todayDay >= 0) {
             if(day - todayDay <= 7 && day - todayDay >0) {
                 getCurrentWeather(data)
             } else {
@@ -32,5 +31,7 @@ export function formHandler(event) {
         } else {
             alert("You can't travel in the past!\nAre you Martin McFly?")
         }
+    }) .then( () => {
+        getImg(address)
     })
 }

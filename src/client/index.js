@@ -1,5 +1,5 @@
 import { formHandler } from './js/app'
-import { postData } from "./js/postModule";
+import { postData } from './js/postModule'
 
 import './styles/page.scss'
 import './styles/header.scss'

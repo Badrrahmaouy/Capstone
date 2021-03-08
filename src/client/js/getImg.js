@@ -8,6 +8,10 @@ const imgType = '&image_type=photo'
 export async function getImg(city) { 
     getData(url + urlKey + city + imgType)
     .then(function (res) {
-        console.log(res.hits[0].webformatURL)
+        const url = res.hits[0].webformatURL
+        // console.log(url)
+        const img = document.createElement('img')
+        img.src = url
+        document.getElementById('city_img').appendChild(img)
     })
 }

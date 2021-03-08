@@ -1,4 +1,3 @@
-import { postData } from "./postModule"
 import { getData } from "./getModule"
 import { getImg } from "./getImg"
 import { getCurrentWeather, getFutureWeather } from "./getWeather"

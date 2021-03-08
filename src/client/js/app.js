@@ -22,16 +22,20 @@ export function formHandler(event) {
         return data
     }).then(data => {
         if(month - todayMonth >= 0 && day - todayDay >= 0) {
-            if(day - todayDay <= 7 && day - todayDay >0) {
+            if(day - todayDay <= 7) {
                 getCurrentWeather(data)
                 console.log('day weather')
                 getImg(address)
-                reset()
-                updateUI()
+                // reset()
+                // updateUI()
             } else {
                 getFutureWeather(data)
                 console.log('future weather');
                 getImg(address)
+                // reset()
+                // for(let i = 0; i < 6; i++) {
+                //     updateUI()
+                // }
             }
         } else {
             alert("You can't travel in the past!\nAre you Martin McFly?")
@@ -39,15 +43,13 @@ export function formHandler(event) {
     }) 
 }
 
-function updateUI() {
+export function updateUI() {
     getData('http://localhost:8081/all')
     .then(res => {
-        console.log(res)
         const myFrag = document.createDocumentFragment()
         const weather = document.getElementById('weather')
         let i = 0
         for(let key of Object.keys(res)) {
-            console.log(Object.values(res)[i])
             const newElement = document.createElement('div')
             newElement.setAttribute('class','fetch')
             newElement.innerHTML = `${key}: ${Object.values(res)[i]}`
@@ -58,7 +60,7 @@ function updateUI() {
     })
 }
 
-function reset() {
+export function reset() {
     const fetch = document.getElementsByClassName('fetch')
     for(let el of fetch) {
         el.innerHTML = ''

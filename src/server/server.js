@@ -27,10 +27,10 @@ app.get('/all', (req, res) => {
 // POST route
 app.post('/add', postData)
 function postData(req, res) {
+    fetchedData['date'] = req.body.date
     fetchedData['city'] = req.body.city
     fetchedData['state'] = req.body.state
     fetchedData['country'] = req.body.country
-    fetchedData['date'] = req.body.date
     fetchedData['weather'] = req.body.weather
     fetchedData['temp'] = req.body.temp
     res.send(fetchedData)

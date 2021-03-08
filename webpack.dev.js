@@ -13,6 +13,15 @@ module.exports = {
         library: 'Client',
         path: path.resolve(__dirname, 'dist'),
     },
+    // devServer: {
+    //     host: 'localhost',
+    //     port: 8080,
+    //     proxy: {
+    //         context: () => true,
+    //         target: "http://localhost:8080/",
+    //         secure: false
+    //     }
+    // },
     module: {
         rules: [
             {

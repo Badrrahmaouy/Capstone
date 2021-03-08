@@ -21,7 +21,7 @@ const fetchedData = {}
 // GET route 
 app.get('/all', (req, res) => {
     res.send(fetchedData)
-    console.log(fetchedData)
+    // console.log(fetchedData)
 })
 
 // POST route

@@ -7,21 +7,12 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
-    // devtool: 'source-map',
+    devtool: 'source-map',
     output: {
         libraryTarget: 'var',
         library: 'Client',
         path: path.resolve(__dirname, 'dist'),
     },
-    // devServer: {
-    //     host: 'localhost',
-    //     port: 8080,
-    //     proxy: {
-    //         context: () => true,
-    //         target: "http://localhost:8080/",
-    //         secure: false
-    //     }
-    // },
     module: {
         rules: [
             {

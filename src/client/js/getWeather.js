@@ -14,7 +14,6 @@ export async function getCurrentWeather(data) {
             country: res.data[0].country_code,
             date: res.data[0].ob_time,
             weather: res.data[0].weather.description,
-            icon: res.data[0].weather.icon,
             temp: res.data[0].temp.toFixed(0)
         })
     })
@@ -30,7 +29,6 @@ export async function getFutureWeather(data) {
                 country: res.country_code,
                 date: res.data[i].datetime,
                 weather: res.data[i].weather.description,
-                icon: res.data[i].weather.icon,
                 temp: res.data[i].temp.toFixed(0)
             })
         }

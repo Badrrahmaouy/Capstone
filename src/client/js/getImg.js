@@ -1,4 +1,3 @@
-import { postData } from "./postModule"
 import { getData } from "./getModule"
 
 const url = 'https://pixabay.com/api/?'
@@ -10,8 +9,9 @@ export async function getImg(city) {
     .then(function (res) {
         const url = res.hits[0].webformatURL
         // console.log(url)
-        const img = document.createElement('img')
+        // const img = document.createElement('img')
+        const img = document.getElementById('img')
         img.src = url
-        document.getElementById('city_img').appendChild(img)
+        // document.getElementById('city_img').appendChild(img)
     })
 }

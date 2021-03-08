@@ -27,14 +27,14 @@ app.get('/all', (req, res) => {
 // POST route
 app.post('/add', postData)
 function postData(req, res) {
-    weather.push(req.body.city)
-    weather.push(req.body.state)
-    weather.push(req.body.country)
-    weather.push(req.body.date)
-    weather.push(req.body.weather)
-    weather.push(req.body.icon)
-    weather.push(req.body.temp)
-    fetchedData.weather = weather
+    fetchedData['city'] = req.body.city
+    fetchedData['state'] = req.body.state
+    fetchedData['country'] = req.body.country
+    fetchedData['date'] = req.body.date
+    fetchedData['weather'] = req.body.weather
+    fetchedData['temp'] = req.body.temp
     res.send(fetchedData)
     console.log(fetchedData)
 }
+// fetchedData.weather = weather
+// console.log(fetchedData)

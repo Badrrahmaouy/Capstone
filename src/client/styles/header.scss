@@ -9,13 +9,18 @@
         border-bottom: 1px solid black;
 
         #logo{
-            position: absolute;
-            left: 250px;
-            top: 15px;
             font-size: 2em;
             padding: 20px;
             background-color: lightgreen;
             border-radius: 100%;
+        }
+
+        @media(min-width:900px) {
+            #logo {
+                position: absolute;
+                left: 250px;
+                top: 15px;
+            }
         }
     }
 }

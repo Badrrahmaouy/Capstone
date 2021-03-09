@@ -8,3 +8,14 @@ footer {
         color: black;
     }
 }
+
+@media(max-width: 900px) {
+    .container {
+        position: relative;
+
+        footer {
+            position: relative;
+            bottom: -150px;
+        }
+    }
+}

@@ -14,8 +14,7 @@ const port = 8081
 app.listen(port, () => { console.log(`The server is running on port ${port}`)})
 console.log(__dirname);
 
-// app ENDPOINTS
-const weather = []
+// app ENDPOINT
 const fetchedData = {}
 
 // GET route 
@@ -32,7 +31,8 @@ function postData(req, res) {
     fetchedData['State'] = req.body.state
     fetchedData['Country'] = req.body.country
     fetchedData['Weather'] = req.body.weather
-    fetchedData['Temp'] = req.body.temp
+    fetchedData['Temp'] = req.body.temp + '˚'
+    fetchedData['Trip-length'] = req.body.trip + ' day(s)'
     res.send(fetchedData)
     // console.log(fetchedData)
 }

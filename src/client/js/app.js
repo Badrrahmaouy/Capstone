@@ -10,12 +10,22 @@ export function formHandler(event) {
     console.log(':::FORM SUBMITTED:::')
 
     let address = document.getElementById('address').value
-    const date = document.getElementById('date').value
+    const date = document.getElementById('date_dep').value
+    const retDate = document.getElementById('date_ret').value
+   
+    // time managing
     const day = parseInt(date[8] + date[9])
     const month = parseInt(date[5] + date[6])
+    const year = parseInt(date[0] + date[1] + date[2] + date[3])
     const today = new Date()
     const todayDay = today.getUTCDate()
     const todayMonth = today.getUTCMonth() + 1
+    const todayYear = today.getUTCFullYear()
+    const date1 = new Date(date)
+    const date2 = new Date(retDate)
+    const diffDate = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24)
+    console.log('Trip length:', diffDate, 'day(s)')
+
     // get coord
     console.log('Fetching coordinates from GeoNames API...');
     getData(geoUrl + address + geoKey)
@@ -25,15 +35,15 @@ export function formHandler(event) {
         return data
     }).then(data => {
         console.log('Fetching weather for your departure date...');
-        if(month - todayMonth >= 0 && day - todayDay >= 0) {
+        if(month - todayMonth >= 0 && day - todayDay >= 0 && year - todayYear >= 0 && diffDate >= 0) {
             if(day - todayDay <= 7) {
-                getCurrentWeather(data)
+                getCurrentWeather(data, diffDate)
                 console.log('Current weather')
                 getImg(address)
             } else {
+                getFutureWeather(data, date, diffDate)
                 console.log('Future weather')
                 getImg(address)
-                getFutureWeather(data, date)
             }
         } else {
             alert("You can't travel in the past!\nAre you Martin McFly?")
@@ -67,6 +77,7 @@ export function reset() {
     const fetch = document.getElementsByClassName('fetch')
     for(let el of fetch) {
         el.innerHTML = ''
+        el.style.content = ''
     }
 
 }

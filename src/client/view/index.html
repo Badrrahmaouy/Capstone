@@ -19,21 +19,23 @@
             <div id="description" class="text">Check the forecast for your planned trip by entering the city where you travelling to and the departure date</div>
             <!-- user inputs -->
             <form id="inputs">
-                <label for="adress">
+                <label for="address">
                     <input id="address" type="text" name="city" placeholder="insert destination" required>
                 </label>
-                <label for="date">
-                    <div id="depDate" class="text">Departure date:</div>
+                <div id="depDate" class="text">Departure date:</div>
+                <label for="date_dep">
                     <input id="date_dep" type="date" name="date" required>
-                    <div id="retDate" class="text">Return date:</div>
+                </label>
+                <div id="retDate" class="text">Return date:</div>
+                <label for="date_ret">
                     <input id="date_ret" type="date" name="date" required>
                 </label>
-                <input id="submit" type="submit" name="" value="submit">
+                <input id="submit" type="submit" name="submit" value="submit">
             </form>
 
             <!-- fetched data -->
             <div id="data">
-                <div id="city_img"><img id="img" src="" alt=""></div>
+                <div id="city_img"><img id="img" src="#" alt=""></div>
                 <div id="weather_data" class="text"></div>
             </div>
         </main>

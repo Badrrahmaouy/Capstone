@@ -1,3 +1,4 @@
+// POST route for express server
     export async function postData (url = '', data = {}) {
         const res = await fetch(url, {
             method: 'POST',
@@ -9,9 +10,8 @@
         });
         try {
             const newData = await res.json();
-            // console.log(newData);
             return newData;
         } catch (error) {
-            console.log('error', error);
+            console.log('error', error)
         }
     }

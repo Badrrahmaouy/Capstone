@@ -20,7 +20,6 @@ const fetchedData = {}
 // GET route 
 app.get('/all', (req, res) => {
     res.send(fetchedData)
-    // console.log(fetchedData)
 })
 
 // POST route
@@ -34,5 +33,4 @@ function postData(req, res) {
     fetchedData['Temp'] = req.body.temp + '˚'
     fetchedData['Trip-length'] = req.body.trip + ' day(s)'
     res.send(fetchedData)
-    // console.log(fetchedData)
 }

@@ -28,7 +28,6 @@ export async function getCurrentWeather(data, diffDate) {
 export async function getFutureWeather(data, inputDate, diffDate) {
     getData(`${futureApiUrl}lat=${data.lat}&lon=${data.lng}${apiKey}`)
     .then( res => {
-        // console.log(res.data)
 
         // fetching the departure day weather
         for(let i = 0; i < res.data.length; i++) {

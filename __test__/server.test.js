@@ -1,14 +1,13 @@
-const request = require('supertest')
-const app = require('../server')
-describe('Post Endpoints', () => {
-    it('should create a new post', async () => {
-        const res = await request(app)
-            .post('/api/posts')
-            .send({
-                userId: 1,
-                title: 'test is cool',
-            })
-        expect(res.statusCode).toEqual(201)
-        expect(res.body).toHaveProperty('post')
+const app = require('../src/server/server')
+const supertest = require('supertest')
+
+const request = supertest(app)
+
+describe('Test express server', () => {
+    it('Get route test', async done => {
+        const res = await request.get('/test')
+        expect(res.status).toBe(200)
+        expect(res.body.message).toBe('pass!')
+        done()
     })
 })

@@ -10,16 +10,17 @@ app.use(bodyParser.json())
 const cors = require('cors')
 app.use(cors())
 
-const port = 8081
-app.listen(port, () => { console.log(`The server is running on port ${port}`)})
-console.log(__dirname);
-
 // app ENDPOINT
 const fetchedData = {}
 
 // GET route 
 app.get('/all', (req, res) => {
     res.send(fetchedData)
+})
+
+// GET route for test
+app.get('/test', async (req, res) => {
+    res.json({ message: 'pass!' })
 })
 
 // POST route
@@ -34,3 +35,5 @@ function postData(req, res) {
     fetchedData['Trip-length'] = req.body.trip + ' day(s)'
     res.send(fetchedData)
 }
+
+module.exports = app

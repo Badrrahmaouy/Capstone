@@ -36,5 +36,3 @@ function postData(req, res) {
     res.send(fetchedData)
     // console.log(fetchedData)
 }
-// fetchedData.weather = weather
-// console.log(fetchedData)

@@ -2,7 +2,7 @@ import { getData } from "./getModule"
 import { getImg } from "./getImg"
 import { getCurrentWeather, getFutureWeather } from "./getWeather"
 // GeoNames url and key
-const geoUrl = 'https://api.geonames.org/geoCodeAddressJSON?q='
+const geoUrl = 'http://api.geonames.org/geoCodeAddressJSON?q='
 const geoKey = '&username=badrrahmaouy'
 
 // Handle user inputs when hit submit bottom
@@ -64,7 +64,7 @@ export function formHandler(event) {
 // Update UI when forecast is fetched
 export function updateUI() {
     // Get fetched data from local server
-    getData('https://localhost:8081/all')
+    getData('http://localhost:8081/all')
     // Create dinamically all the DOM elements for the fetched data
     .then(res => {
         console.log('Updating UI...');

@@ -10,7 +10,7 @@ const apiKey = '&key=6ee45688665343cfaaea8d2cd299528a'
 export async function getCurrentWeather(data, diffDate) {
     getData(`${currentApiUrl}lat=${data.lat}&lon=${data.lng}${apiKey}`)
     .then( res => {
-        postData('https://localhost:8081/add', {
+        postData('http://localhost:8081/add', {
             date: res.data[0].ob_time,
             city: res.data[0].city_name,
             state: res.data[0].state_code,
@@ -33,7 +33,7 @@ export async function getFutureWeather(data, inputDate, diffDate) {
         for(let i = 0; i < res.data.length; i++) {
             const depDate = res.data[i].datetime
             if(depDate === inputDate) {
-                postData('https://localhost:8081/add', {
+                postData('http://localhost:8081/add', {
                     date: res.data[i].datetime,
                     city: res.city_name,
                     state: res.state_code,

@@ -2,13 +2,13 @@ import { postData } from "./postModule"
 import { getData } from "./getModule"
 import { reset, updateUI } from "./app"
 
-const currentApiUrl = 'https://api.weatherbit.io/v2.0/current?'
-const futureApiUrl = 'https://api.weatherbit.io/v2.0/forecast/daily?'
+const currentApiUrl = 'https://api.weatherbit.io/v2.0/current?&city='
+const futureApiUrl = 'https://api.weatherbit.io/v2.0/forecast/daily?&city='
 const apiKey = '&key=6ee45688665343cfaaea8d2cd299528a'
 
 // get current weather
-export async function getCurrentWeather(data, diffDate) {
-    getData(`${currentApiUrl}lat=${data.lat}&lon=${data.lng}${apiKey}`)
+export async function getCurrentWeather(address, diffDate) {
+    getData(`${currentApiUrl}${address}${apiKey}`)
     .then( res => {
         postData('/add', {
             date: res.data[0].ob_time,
@@ -25,8 +25,8 @@ export async function getCurrentWeather(data, diffDate) {
 }
 
 // get 16 days weather
-export async function getFutureWeather(data, inputDate, diffDate) {
-    getData(`${futureApiUrl}lat=${data.lat}&lon=${data.lng}${apiKey}`)
+export async function getFutureWeather(address, inputDate, diffDate) {
+    getData(`${futureApiUrl}${address}${apiKey}`)
     .then( res => {
 
         // fetching the departure day weather

@@ -29,27 +29,27 @@ export function formHandler(event) {
     console.log('Trip length:', diffDate, 'day(s)')
 
     // get coord
-    console.log('Fetching coordinates from GeoNames API...');
-    getData(geoUrl + address + geoKey)
-    // Return coordinates to fetch weather
-    .then(res => {
-        const data = { lat: res.address.lat, lng: res.address.lng }
-        console.log('Coordinates fetched!')
-        return data
-    })
+    // console.log('Fetching coordinates from GeoNames API...');
+    // getData(geoUrl + address + geoKey)
+    // // Return coordinates to fetch weather
+    // .then(res => {
+    //     const data = { lat: res.address.lat, lng: res.address.lng }
+    //     console.log('Coordinates fetched!')
+    //     return data
+    // })
     // Fetch weather from Weatherbit.io
-    .then(data => {
+    // .then(data => {
         console.log('Fetching weather for your departure date...')
         // Checking what kind of forecast is needed
         if(month - todayMonth >= 0 && day - todayDay >= 0 && year - todayYear >= 0 && diffDate >= 0) {
             if(day - todayDay <= 7) {
                 // Departure date this week so fetch current weather
-                getCurrentWeather(data, diffDate)
+                getCurrentWeather(address, diffDate)
                 console.log('Current weather')
                 getImg(address)
             } else {
                 // Departure date not this week so fetch future weather 
-                getFutureWeather(data, date, diffDate)
+                getFutureWeather(address, date, diffDate)
                 console.log('Future weather')
                 getImg(address)
             }
@@ -58,7 +58,7 @@ export function formHandler(event) {
             alert("You can't travel in the past!\nAre you Martin McFly?")
             console.log('Error with your input. Please insert a valid date to proced!');
         }
-    }) 
+    // }) 
 }
 
 // Update UI when forecast is fetched

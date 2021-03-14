@@ -64,7 +64,7 @@ export function formHandler(event) {
 // Update UI when forecast is fetched
 export function updateUI() {
     // Get fetched data from local server
-    getData('http://localhost:8081/all')
+    getData('/all')
     // Create dinamically all the DOM elements for the fetched data
     .then(res => {
         console.log('Updating UI...');
